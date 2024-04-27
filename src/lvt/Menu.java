@@ -1,6 +1,9 @@
 package lvt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.swing.JOptionPane;
 
 public class Menu {
 
@@ -17,7 +20,26 @@ public class Menu {
 		ArrayList<Object> piccaFromMenu = new ArrayList<Object>();
 		ArrayList<Object> YourOwnPicca = new ArrayList<Object>();
 		
+		do {
+			izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies darbību", "Izvēle", 
+					JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
+			izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
+			
+			switch(izvelesIndekss) {
+			case 0:
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			}
+		}while(izvelesIndekss != 5);
 		
 	}
-
 }
