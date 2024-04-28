@@ -24,7 +24,7 @@ public class User {
     }
 	
 	public String getUzvards() {
-		return vards;
+		return uzvards;
 	}
 	
 	void setUzvards(String uzvards){
@@ -32,7 +32,7 @@ public class User {
     }
 	
 	public String getAdresse() {
-		return vards;
+		return adresse;
 	}
 	
 	void setAdresse(String adresse){
