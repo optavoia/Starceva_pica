@@ -46,4 +46,11 @@ public class User {
 	void setNumber(String number){
         this.number = number;
     }
+	
+	public String izvadit() {
+		return  "\n\nVards: "+getVards()+
+				"\nUzvards: "+getUzvards()+
+				"\nAdresse: "+getAdresse()+
+				"\nTalrunis: "+getNumber();
+	}
 }
