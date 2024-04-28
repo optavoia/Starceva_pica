@@ -46,7 +46,21 @@ public class PicaFromMenu {
     }
 	
 	public String izvadit() {
-		return  "\nNosaukums: "+getName()+
-				"\nToppings: "+getToppings();
+	    String name = getName();
+	    String toppings = getToppings();
+	    
+	    // Calculate the length of the longest line
+	    int maxLength = Math.max(name.length(), toppings.length());
+
+	    // Calculate the number of spaces needed to center-align the text
+	    int spaces = (maxLength - name.length()) / 2;
+
+	    // Construct the centered output
+	    String centeredOutput = String.format("%" + (spaces + name.length()) + "s", name) +
+	                            "\n" +
+	                            String.format("%" + (spaces + toppings.length()) + "s", toppings);
+
+	    return centeredOutput;
 	}
+
 }
