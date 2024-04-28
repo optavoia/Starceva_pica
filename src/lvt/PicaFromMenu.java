@@ -46,7 +46,7 @@ public class PicaFromMenu {
     }
 	
 	public String izvadit() {
-		return  "\n\nNosaukums: "+getName()+
+		return  "\nNosaukums: "+getName()+
 				"\nToppings: "+getToppings();
 	}
 }
