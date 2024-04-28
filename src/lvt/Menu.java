@@ -24,7 +24,7 @@ public class Menu {
 		int diam = 0, cena = 0; //pie picas
 		int numLength;
 		
-		String[] darbibas = {"User information", "Menu", "Order picca", "Make your own picca","Information","Aizvert Menu"};
+		String[] darbibas = {"User information", "Menu", "Make your own picca", "Order picca", "Information","Aizvert Menu"};
 		String[] piccas = {"Peperoni", "Studentu", "Pikantā"};
 		String[] izvele1 = {"Cenas", "Menu"};
 		ArrayList<Object> picaFromMenu = new ArrayList<Object>();
@@ -32,18 +32,20 @@ public class Menu {
 		ArrayList<Object> User = new ArrayList<Object>();
 		
 		ImageIcon peperoniImage = new ImageIcon("peperoni.png");
+		ImageIcon studentuImage = new ImageIcon("Studentu.png");
+		ImageIcon pikantaImage = new ImageIcon("Pikanta.png");
 		
 		//Picas
-		PicaFromMenu pepperoni = new PicaFromMenu("Pepperoni", diam, cena,"\"Pepperoni\" desa, mocarella, kūpināts kausētais\r\n"
+		PicaFromMenu pepperoni = new PicaFromMenu("Pepperoni", diam, cena,"\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
 				+ "siers, \"Taco\" mērce, sīpolu čipsi, rukola,\ntomātu mērce, ķiploku mērce, oregano");
 		picaFromMenu.add(pepperoni);
 		
-		PicaFromMenu studentu = new PicaFromMenu("Studentu", diam, cena,"\"Studentu\" Cūkgaļas šķiņķis, cīsiņi, "
-				+ "mocarella, tomātu mērce, eļļas un ķiploku mērce, oregano");
+		PicaFromMenu studentu = new PicaFromMenu("Studentu", diam, cena,"\"Studentu\" Cūkgaļas šķiņķis, cīsiņi,"
+				+ "mocarella\n, tomātu mērce, eļļas un ķiploku mērce, oregano");
 		
 		picaFromMenu.add(studentu);
 		
-		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi, "
+		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,\n "
 				+ "tomātu mērce, eļļas un ķiploku mērce, oregano");
 		picaFromMenu.add(pikanta);
 		
@@ -132,12 +134,12 @@ public class Menu {
 					case 1:
 						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
 						JOptionPane.showMessageDialog(null, bum1, "Studentu", 
-								JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.INFORMATION_MESSAGE, studentuImage);
 						break;
 					case 2:
 						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
 						JOptionPane.showMessageDialog(null, bum1,"Pikanta",
-								JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.INFORMATION_MESSAGE, pikantaImage);
 						break;
 					}
 					break;
