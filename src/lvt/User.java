@@ -1,5 +1,6 @@
 package lvt;
 
+
 public class User {
 	private String vards;
 	private String uzvards;
