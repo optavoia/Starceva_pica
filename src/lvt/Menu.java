@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Menu {
@@ -18,7 +19,8 @@ public class Menu {
 		int izvelesIndekss;
 		String vards, uzvards, adresse, numurs;
 		int vecums;
-		int diam = 0, cena = 0; //pie piccas
+		int diam = 0, cena = 0; //pie picas
+		int numLength;
 		
 		String[] darbibas = {"User information", "Menu", "Order picca", "Make your own picca","Information","Aizvert Menu"};
 		String[] piccas = {"Peperoni", "Studentu", "Pikantā"};
@@ -27,32 +29,35 @@ public class Menu {
 		ArrayList<Object> YourOwnPicca = new ArrayList<Object>();
 		ArrayList<Object> User = new ArrayList<Object>();
 		
+		ImageIcon peperoniImage = new ImageIcon("peperoni.png");
+		
 		//Picas
 		PicaFromMenu pepperoni = new PicaFromMenu("Pepperoni", diam, cena,"\"Pepperoni\" desa, mocarella, kūpināts kausētais\r\n"
-				+ "siers, \"Taco\" mērce, sīpolu čipsi, rukola, tomātu mērce, ķiploku mērce, oregano");
+				+ "siers, \"Taco\" mērce, sīpolu čipsi, rukola,\ntomātu mērce, ķiploku mērce, oregano");
+		picaFromMenu.add(pepperoni);
 		
 		PicaFromMenu studentu = new PicaFromMenu("Studentu", diam, cena,"\"Studentu\" Cūkgaļas šķiņķis, cīsiņi, "
 				+ "mocarella, tomātu mērce, eļļas un ķiploku mērce, oregano");
 		
+		picaFromMenu.add(studentu);
+		
 		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi, "
 				+ "tomātu mērce, eļļas un ķiploku mērce, oregano");
+		picaFromMenu.add(pikanta);
 		
-		
+		//User info
 		vards = JOptionPane.showInputDialog("Ievadiet vardu: ");
 		uzvards = JOptionPane.showInputDialog("Ievadiet uzvardu: ");
 		adresse = JOptionPane.showInputDialog("Ievadiet savu adressi: ");
-		
-		int numLength;
 		do {
 			numurs = JOptionPane.showInputDialog("Ievadiet savu numuru: ");
 			numLength = numurs.length();
 		}while(numLength != 8);
 		
+		//BufferredWriter USER_INFO
 		try {
-            // Создаем новый BufferedWriter, чтобы добавить функциональность буферизации
             BufferedWriter writer = new BufferedWriter(new FileWriter("user_info.txt"));
             
-            // Записываем данные в файл, разделяя их новой строкой
             writer.write("Vards: " + vards);
             writer.newLine();
             writer.write("Uzvards: " + uzvards);
@@ -60,8 +65,6 @@ public class Menu {
             writer.write("Adrese: " + adresse);
             writer.newLine();
             writer.write("Numurs: " + numurs);
-            
-            // Закрываем BufferedWriter
             writer.close();
             
             System.out.println("Dati veiksmīgi ierakstīti failā.");
@@ -70,10 +73,8 @@ public class Menu {
         }
 		
 		
-		User cilveks = new User(vards, uzvards, adresse, numurs);
-		User.add(cilveks);
-		JOptionPane.showMessageDialog(null, "Jūs esat veiksmīgi izveidojis kontu!","Paziņojums", JOptionPane.INFORMATION_MESSAGE);
 		
+		//IZVELE
 		do {
 			izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies darbību", "Izvēle", 
 					JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
@@ -118,13 +119,12 @@ public class Menu {
 							piccas, piccas[0]);
 					izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
 					
-					
 					String bum1 ="";
 					switch(izvelesIndekss) {
 					case 0:
 						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
 						JOptionPane.showMessageDialog(null, bum1, "Pepperoni",
-								JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.INFORMATION_MESSAGE, peperoniImage);
 						break;
 					case 1:
 						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
