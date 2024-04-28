@@ -1,5 +1,11 @@
 package lvt;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -21,6 +27,17 @@ public class Menu {
 		ArrayList<Object> YourOwnPicca = new ArrayList<Object>();
 		ArrayList<Object> User = new ArrayList<Object>();
 		
+		//Picas
+		PicaFromMenu pepperoni = new PicaFromMenu("Pepperoni", diam, cena,"\"Pepperoni\" desa, mocarella, kūpināts kausētais\r\n"
+				+ "siers, \"Taco\" mērce, sīpolu čipsi, rukola, tomātu mērce, ķiploku mērce, oregano");
+		
+		PicaFromMenu studentu = new PicaFromMenu("Studentu", diam, cena,"\"Studentu\" Cūkgaļas šķiņķis, cīsiņi, "
+				+ "mocarella, tomātu mērce, eļļas un ķiploku mērce, oregano");
+		
+		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi, "
+				+ "tomātu mērce, eļļas un ķiploku mērce, oregano");
+		
+		
 		vards = JOptionPane.showInputDialog("Ievadiet vardu: ");
 		uzvards = JOptionPane.showInputDialog("Ievadiet uzvardu: ");
 		adresse = JOptionPane.showInputDialog("Ievadiet savu adressi: ");
@@ -30,6 +47,28 @@ public class Menu {
 			numurs = JOptionPane.showInputDialog("Ievadiet savu numuru: ");
 			numLength = numurs.length();
 		}while(numLength != 8);
+		
+		try {
+            // Создаем новый BufferedWriter, чтобы добавить функциональность буферизации
+            BufferedWriter writer = new BufferedWriter(new FileWriter("user_info.txt"));
+            
+            // Записываем данные в файл, разделяя их новой строкой
+            writer.write("Vards: " + vards);
+            writer.newLine();
+            writer.write("Uzvards: " + uzvards);
+            writer.newLine();
+            writer.write("Adrese: " + adresse);
+            writer.newLine();
+            writer.write("Numurs: " + numurs);
+            
+            // Закрываем BufferedWriter
+            writer.close();
+            
+            System.out.println("Dati veiksmīgi ierakstīti failā.");
+        } catch (IOException e) {
+            System.out.println("Kļūda, rakstot failā: " + e.getMessage());
+        }
+		
 		
 		User cilveks = new User(vards, uzvards, adresse, numurs);
 		User.add(cilveks);
@@ -41,13 +80,65 @@ public class Menu {
 			izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
 			
 			switch(izvelesIndekss) {
+			//user info
 			case 0:
-				String bum ="";
-				bum += cilveks.izvadit();
-				JOptionPane.showMessageDialog(null, bum, "User",
-						JOptionPane.INFORMATION_MESSAGE);
+				try {
+				    BufferedReader reader = new BufferedReader(new FileReader("user_info.txt"));
+				    StringBuilder content = new StringBuilder();
+				    String line;
+				    while ((line = reader.readLine()) != null) {
+				        content.append(line).append("\n");
+				    }
+				    reader.close();
+				    JOptionPane.showMessageDialog(null, content.toString());
+				} catch (IOException e) {
+				    System.out.println("Kļūda, lasot no faila: " + e.getMessage());
+				}
+
 				break;
+			//Menu
 			case 1:
+				izvele = (String)JOptionPane.showInputDialog(null, 
+						"Izvēlies ko tu gribi paskatities", "Izvēle", 
+						JOptionPane.QUESTION_MESSAGE, null, 
+						izvele1, izvele1[0]);
+				izvelesIndekss = Arrays.asList(izvele1).indexOf(izvele);
+				switch(izvelesIndekss) {
+				
+				
+				//izvada cenas par piccam
+				case 0:
+					JOptionPane.showMessageDialog(null, "20 cm = 7 eur\n30 cm = 12 eur\n40cm = 16 eur\n50cm = 20 eur", "Cenas", JOptionPane.INFORMATION_MESSAGE);
+					break;
+				//picas
+				case 1:	
+					izvele = (String)JOptionPane.showInputDialog(null, 
+							"Izvēlies picu kuru gribu paskatites", "Izvēle", 
+							JOptionPane.QUESTION_MESSAGE, null, 
+							piccas, piccas[0]);
+					izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
+					
+					
+					String bum1 ="";
+					switch(izvelesIndekss) {
+					case 0:
+						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
+						JOptionPane.showMessageDialog(null, bum1, "Pepperoni",
+								JOptionPane.INFORMATION_MESSAGE);
+						break;
+					case 1:
+						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
+						JOptionPane.showMessageDialog(null, bum1, "Studentu", 
+								JOptionPane.INFORMATION_MESSAGE);
+						break;
+					case 2:
+						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
+						JOptionPane.showMessageDialog(null, bum1,"Pikanta",
+								JOptionPane.INFORMATION_MESSAGE);
+						break;
+					}
+					break;
+				}
 				break;
 			case 2:
 				break;
