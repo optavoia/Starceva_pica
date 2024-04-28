@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Menu {
@@ -119,6 +121,7 @@ public class Menu {
 							piccas, piccas[0]);
 					izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
 					
+					
 					String bum1 ="";
 					switch(izvelesIndekss) {
 					case 0:
@@ -138,6 +141,7 @@ public class Menu {
 						break;
 					}
 					break;
+
 				}
 				break;
 			case 2:

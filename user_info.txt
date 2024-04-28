@@ -1,4 +1,4 @@
-Vards: aga
-Uzvards: gagsa
-Adrese: agg
-Numurs: 42422424
+Vards: azsga
+Uzvards: sgagsa
+Adrese: gsagsa
+Numurs: 42242424
