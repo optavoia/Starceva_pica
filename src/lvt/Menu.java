@@ -39,6 +39,13 @@ public class Menu {
 		}
 		return izveletasPiedavas;
 	}
+	
+	private static String chooseMerce() {
+		String[] merces = {"Ķiploki", "Majonēze", "Kečups"};
+		String izveletaMerce = (String) JOptionPane.showInputDialog(null, "Izvēlaties picas mērci: ", 
+				"Izvēlaties mērci", JOptionPane.PLAIN_MESSAGE, null, merces, merces[0]);
+		return izveletaMerce;
+	}
 
 	public static void main(String[] args) {
 		String izvele;
