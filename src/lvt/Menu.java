@@ -59,7 +59,6 @@ public class Menu {
 		String izvele;
 		int izvelesIndekss;
 		String vards, uzvards, adresse, numurs;
-		int vecums;
 		int diam = 0, cena = 0; //pie picas
 		int numLength;
 		
@@ -81,7 +80,6 @@ public class Menu {
 		
 		PicaFromMenu studentu = new PicaFromMenu("Studentu", diam, cena,"\"Studentu\" Cūkgaļas šķiņķis, cīsiņi,"
 				+ "mocarella\n, tomātu mērce, eļļas un ķiploku mērce, oregano");
-		
 		picaFromMenu.add(studentu);
 		
 		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,\n "
@@ -189,7 +187,6 @@ public class Menu {
 				int izmers = choosePicaIzmers();
 				ArrayList<String> piedavas = choosePiedavas();
 				String merce = chooseMerce();
-				
 				MakePica myPica= new MakePica(izmers, piedavas, merce);
 				
 				JOptionPane.showMessageDialog(null, myPica.izvadit_ManaPica());
