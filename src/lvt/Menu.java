@@ -15,6 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Menu {
+	
+	private static int choosePicaIzmers() {
+		String [] veidi = {"20", "30", "50"};
+		int size = Integer.parseInt((String)JOptionPane.showInputDialog(null, "Izvēlieties picas izmēru (cm):", 
+				"Picas izmērs", JOptionPane.PLAIN_MESSAGE, null, veidi, veidi[0]));
+		return size;
+	}
 
 	public static void main(String[] args) {
 		String izvele;
