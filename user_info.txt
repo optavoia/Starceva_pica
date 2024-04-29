@@ -1,4 +1,4 @@
-Vards: sfafsa
-Uzvards: sfafs
-Adrese: sfafsa
-Numurs: 32232323
+Vards: Anzelika
+Uzvards: Starceva
+Adrese: ugales iela 6
+Numurs: 25208824
