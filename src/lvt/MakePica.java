@@ -7,7 +7,7 @@ public class MakePica {
 	private ArrayList<String> piedavas;
 	private String merce;
 	
-	public MakePica(int izmers, ArrayList<String> piedavas, String sauce){
+	public MakePica(int izmers, ArrayList<String> piedavas, String merce){
 		this.izmers = izmers;
 		this.piedavas = piedavas;
 		this.merce = merce;
