@@ -22,6 +22,23 @@ public class Menu {
 				"Picas izmērs", JOptionPane.PLAIN_MESSAGE, null, veidi, veidi[0]));
 		return size;
 	}
+	
+	private static ArrayList<String> choosePiedavas(){
+		ArrayList<String> izveletasPiedavas = new ArrayList<String>();
+		String[] piedavas = {"Peperoni", "Sēnes", "Pipari", "Olīvas", "Sīpoli", "Tomāti", "Šķiņķis"};
+		boolean izvele = true;
+		while (izvele) {
+			String izveletaPiedava = (String) JOptionPane.showInputDialog(null, "Izvelies picas piedavas:", 
+					"Izveleties piedavas", JOptionPane.PLAIN_MESSAGE, null, piedavas, piedavas[0]);
+			
+			if(izveletasPiedavas != null) {
+				izveletasPiedavas.add(izveletaPiedava);
+			}else {
+				izvele = false;
+			}
+		}
+		return izveletasPiedavas;
+	}
 
 	public static void main(String[] args) {
 		String izvele;
