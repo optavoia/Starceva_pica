@@ -24,29 +24,37 @@ public class Menu {
 	}
 	
 	private static ArrayList<String> choosePiedavas(){
-		ArrayList<String> izveletasPiedavas = new ArrayList<String>();
-		String[] piedavas = {"Peperoni", "Sēnes", "Pipari", "Olīvas", "Sīpoli", "Tomāti", "Šķiņķis"};
-		boolean izvele = true;
-		while (izvele) {
-			String izveletaPiedava = (String) JOptionPane.showInputDialog(null, "Izvelies picas piedavas:", 
-					"Izveleties piedavas", JOptionPane.PLAIN_MESSAGE, null, piedavas, piedavas[0]);
-			
-			if(izveletasPiedavas != null) {
-				izveletasPiedavas.add(izveletaPiedava);
-			}else {
-				izvele = false;
-			}
-		}
-		return izveletasPiedavas;
+	    ArrayList<String> izveletasPiedavas = new ArrayList<String>();
+	    String[] piedavas = {"Peperoni", "Sēnes", "Pipari", "Olīvas", "Sīpoli", "Tomāti", "Šķiņķis", "Vairs nevajag"};
+	    boolean izvele = true;
+	    while (izvele) {
+	        String izveletaPiedava = (String) JOptionPane.showInputDialog(null, "Izvelies picas piedavas:", 
+	                "Izveleties piedavas", JOptionPane.PLAIN_MESSAGE, null, piedavas, piedavas[0]);
+	        
+	        if (izveletaPiedava != null) {
+	            if (!izveletaPiedava.equals("Vairs nevajag")) {
+	                izveletasPiedavas.add(izveletaPiedava);
+	            } else {
+	                izvele = false;
+	            }
+	        } else {
+	            izvele = false; 
+	        }
+	    }
+	    return izveletasPiedavas;
 	}
 	
 	private static String chooseMerce() {
-		String[] merces = {"Ķiploki", "Majonēze", "Kečups"};
-		String izveletaMerce = (String) JOptionPane.showInputDialog(null, "Izvēlaties picas mērci: ", 
-				"Izvēlaties mērci", JOptionPane.PLAIN_MESSAGE, null, merces, merces[0]);
-		return izveletaMerce;
+	    String[] merces1 = {"Ķiploki", "Majonēze", "Kečups"};
+	    String izveletaMerce = (String) JOptionPane.showInputDialog(null, "Izvēleties picas mērci: ", 
+	            "Izvēleties mērci", JOptionPane.PLAIN_MESSAGE, null, merces1, merces1[0]);
+	    if (izveletaMerce != null) {
+	        return izveletaMerce;
+	    } else {
+	        return "";
+	    }
 	}
-
+	
 	public static void main(String[] args) {
 		String izvele;
 		int izvelesIndekss;
@@ -178,6 +186,13 @@ public class Menu {
 				}
 				break;
 			case 2:
+				int izmers = choosePicaIzmers();
+				ArrayList<String> piedavas = choosePiedavas();
+				String merce = chooseMerce();
+				
+				MakePica myPica= new MakePica(izmers, piedavas, merce);
+				
+				JOptionPane.showMessageDialog(null, myPica.izvadit_ManaPica());
 				break;
 			case 3:
 				break;
