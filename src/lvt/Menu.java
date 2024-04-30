@@ -62,12 +62,14 @@ public class Menu {
 		int diam = 0, cena = 0; //pie picas
 		int numLength;
 		
-		String[] darbibas = {"User information", "Menu", "Make your own picca", "Order picca", "Information","Aizvert Menu"};
+		String[] darbibas = {"User information", "Menu", "Order picca", "Information","Aizvert Menu"};
 		String[] piccas = {"Peperoni", "Studentu", "Pikantā"};
-		String[] izvele1 = {"Cenas", "Menu"};
+		String[] izvele1 = {"Cenas", "Menu", "\"Izveidojiet savu picu\" info"};
+		String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 		ArrayList<Object> picaFromMenu = new ArrayList<Object>();
 		ArrayList<Object> YourOwnPicca = new ArrayList<Object>();
 		ArrayList<Object> User = new ArrayList<Object>();
+		ArrayList<Object> order = new ArrayList<Object>();
 		
 		ImageIcon peperoniImage = new ImageIcon("peperoni.png");
 		ImageIcon studentuImage = new ImageIcon("Studentu.png");
@@ -150,7 +152,7 @@ public class Menu {
 				
 				//izvada cenas par piccam
 				case 0:
-					JOptionPane.showMessageDialog(null, "20 cm = 7 eur\n30 cm = 12 eur\n40cm = 16 eur\n50cm = 20 eur", "Cenas", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "20 cm = 7 eur\n30 cm = 12 eur\n50cm = 20 eur", "Cenas", JOptionPane.INFORMATION_MESSAGE);
 					break;
 				//picas
 				case 1:	
@@ -178,27 +180,76 @@ public class Menu {
 						JOptionPane.showMessageDialog(null, bum1,"Pikanta",
 								JOptionPane.INFORMATION_MESSAGE, pikantaImage);
 						break;
+						
 					}
 					break;
-
+				case 2:
+					JOptionPane.showMessageDialog(null, "Pieejamie picu izmēri: 20, 30 un 50 cm"
+							+ "\nPieejamas piedavas: \"Peperoni\", \"Sēnes\", \"Pipari\", \"Olīvas\", \"Sīpoli\", \"Tomāti\", \"Šķiņķis\", \"Vairs nevajag\""
+							+ "\nPieejamās mērces: \"Ķiploki\", \"Majonēze\", \"Kečups\"", "Informacija", JOptionPane.PLAIN_MESSAGE);
+					break;
 				}
 				break;
 			case 2:
-				int izmers = choosePicaIzmers();
-				ArrayList<String> piedavas = choosePiedavas();
-				String merce = chooseMerce();
-				MakePica myPica= new MakePica(izmers, piedavas, merce);
+				izvele = (String)JOptionPane.showInputDialog(null, 
+						"Izvēlies ko tu gribi paskatities", "Izvēle", 
+						JOptionPane.QUESTION_MESSAGE, null, 
+						izvele2, izvele2[0]);
+				izvelesIndekss = Arrays.asList(izvele2).indexOf(izvele);
 				
-				JOptionPane.showMessageDialog(null, myPica.izvadit_ManaPica());
+				switch(izvelesIndekss) {
+				case 0:
+					izvele = (String)JOptionPane.showInputDialog(null, 
+							"Izvēlies ko tu gribi paskatities", "Izvēle", 
+							JOptionPane.QUESTION_MESSAGE, null, 
+							piccas, piccas[0]);
+					izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
+					
+					if(izvelesIndekss == 0) {
+						order.add(pepperoni);
+					}else if(izvelesIndekss == 1) {
+						order.add(studentu);
+					}else if(izvelesIndekss == 2) {
+						order.add(pikanta);
+					}
+					
+					break;
+				case 1:
+					int izmers = choosePicaIzmers();
+					ArrayList<String> piedavas = choosePiedavas();
+					String merce = chooseMerce();
+					
+					MakePica myPica= new MakePica(izmers, piedavas, merce);
+					order.add(myPica);
+					
+					JOptionPane.showMessageDialog(null, myPica.izvadit_ManaPica());
+					
+					try {
+			            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt"));
+			            
+			            writer.write("Vards: " + vards);
+			            writer.newLine();
+			            writer.write("Uzvards: " + uzvards);
+			            writer.newLine();
+			            writer.write("Adrese: " + adresse);
+			            writer.newLine();
+			            writer.write("Numurs: " + numurs);
+			            writer.close();
+			            
+			            System.out.println("Dati veiksmīgi ierakstīti failā.");
+			        } catch (IOException e) {
+			            System.out.println("Kļūda, rakstot failā: " + e.getMessage());
+			        }
+					
+					break;
+				}
 				break;
 			case 3:
 				break;
 			case 4:
 				break;
-			case 5:
-				break;
 			}
-		}while(izvelesIndekss != 5);
+		}while(izvelesIndekss != 4);
 		
 	}
 }
