@@ -227,13 +227,12 @@ public class Menu {
 					try {
 			            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt"));
 			            
-			            writer.write("Vards: " + vards);
-			            writer.newLine();
-			            writer.write("Uzvards: " + uzvards);
-			            writer.newLine();
-			            writer.write("Adrese: " + adresse);
-			            writer.newLine();
-			            writer.write("Numurs: " + numurs);
+			            for (Object obj : order) {
+			                if (obj instanceof Pica) {
+			                    writer.write(obj.toString());
+			                    writer.newLine();
+			                }
+			            }
 			            writer.close();
 			            
 			            System.out.println("Dati veiksmīgi ierakstīti failā.");
