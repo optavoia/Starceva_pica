@@ -2,7 +2,7 @@ package lvt;
 
 import java.util.ArrayList;
 
-public class MakePica {
+public class MakePica implements Pica{
 	private int izmers;
 	private ArrayList<String> piedavas;
 	private String merce;
