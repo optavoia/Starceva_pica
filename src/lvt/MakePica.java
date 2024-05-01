@@ -13,6 +13,37 @@ public class MakePica implements Pica{
 		this.merce = merce;
 	}
 	
+	public int getIzmers() {
+		return izmers;
+	}
+	
+	void setIzmers(int izmers){
+        this.izmers = izmers;
+    }
+	
+	public ArrayList<String> getPiedavas() {
+        return piedavas;
+    }
+
+    public void setPiedavas(ArrayList<String> piedavas) {
+        this.piedavas = piedavas;
+    }
+    
+    public String getMerce() {
+		return merce;
+	}
+	
+	void setMerce(String merce){
+        this.merce = merce;
+    }
+	
+	@Override
+    public String toString() {
+		return  "\n\nIzmers: "+getIzmers()+
+				"\nPiedavas: "+getPiedavas()+
+				"\nMerce: "+getMerce();
+    }
+	
 	public String izvadit_ManaPica() {
 		StringBuilder apraksts= new StringBuilder();
 		apraksts.append("Izmērs: ").append(izmers).append(" cm\n");
