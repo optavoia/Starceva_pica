@@ -62,7 +62,7 @@ public class Menu {
 		int diam = 0, cena = 0; //pie picas
 		int numLength;
 		
-		String[] darbibas = {"User information", "Menu", "Order picca", "Information","Aizvert Menu"};
+		String[] darbibas = {"User information", "Menu", "Pasūtīt picu", "Paskatities pasūtījumu","Aizvert Menu"};
 		String[] piccas = {"Peperoni", "Studentu", "Pikantā"};
 		String[] izvele1 = {"Cenas", "Menu", "\"Izveidojiet savu picu\" info"};
 		String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
@@ -89,9 +89,13 @@ public class Menu {
 		picaFromMenu.add(pikanta);
 		
 		//User info
+		
 		vards = JOptionPane.showInputDialog("Ievadiet vardu: ");
+		
 		uzvards = JOptionPane.showInputDialog("Ievadiet uzvardu: ");
+		
 		adresse = JOptionPane.showInputDialog("Ievadiet savu adressi: ");
+		
 		do {
 			numurs = JOptionPane.showInputDialog("Ievadiet savu numuru: ");
 			numLength = numurs.length();
@@ -244,8 +248,22 @@ public class Menu {
 				}
 				break;
 			case 3:
+				try {
+				    BufferedReader reader = new BufferedReader(new FileReader("order.txt"));
+				    StringBuilder content = new StringBuilder();
+				    String line;
+				    while ((line = reader.readLine()) != null) {
+				        content.append(line).append("\n");
+				    }
+				    reader.close();
+				    JOptionPane.showMessageDialog(null, content.toString());
+				} catch (IOException e) {
+				    System.out.println("Kļūda, lasot no faila: " + e.getMessage());
+				}
 				break;
 			case 4:
+				JOptionPane.showMessageDialog(null, "Uz redzēšanos!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE); 
+				System.exit(0);
 				break;
 			}
 		}while(izvelesIndekss != 4);

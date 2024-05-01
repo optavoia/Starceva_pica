@@ -45,6 +45,12 @@ public class PicaFromMenu implements Pica{
         this.toppings = toppings;
     }
 	
+	@Override
+    public String toString() {
+		return  "\n\nNosaukums: "+getName()+
+				"\nToppings: "+getToppings();
+    }
+	
 	public String izvadit() {
 		return  "\n\nNosaukums: "+getName()+
 				"\nToppings: "+getToppings();

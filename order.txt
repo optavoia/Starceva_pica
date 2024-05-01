@@ -1,2 +1,11 @@
-lvt.PicaFromMenu@60611244
-lvt.MakePica@3745e5c6
+
+
+Nosaukums: Pepperoni
+Toppings: "Pepperoni" desa, mocarella, kūpināts kausētais
+siers, "Taco" mērce, sīpolu čipsi, rukola,
+tomātu mērce, ķiploku mērce, oregano
+
+
+Izmers: 50
+Piedavas: [Pipari]
+Merce: Majonēze
