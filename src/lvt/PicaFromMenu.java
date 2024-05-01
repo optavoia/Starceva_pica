@@ -1,6 +1,6 @@
 package lvt;
 
-public class PicaFromMenu {
+public class PicaFromMenu implements Pica{
 	private String name;
 	private int diam; //piccas izmers
 	private int cena;
