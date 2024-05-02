@@ -1,12 +1,7 @@
 Jūsu pasūtījums:
 
 
-Nosaukums: Pikantā
-Toppings: "Pikantā" Vistas gaļa, mocarella, konservēti ananasi,
-tomātu mērce, eļļas un ķiploku mērce, oregano
-
-
-Nosaukums: ManaPica
+Nosaukums: ManaPOica
 Izmers: 30
-Piedavas: [Pipari, Sīpoli]
+Piedavas: [Olīvas, Tomāti]
 Merce: Majonēze
