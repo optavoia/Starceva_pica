@@ -47,6 +47,8 @@ public class PicaFromMenu{
 	
     public String toString() {
 		return  "\n\nNosaukums: "+getName()+
-				"\nToppings: "+getToppings();
+				"\nToppings: "+getToppings()+
+				"\nPiedavas: "+getToppings()+
+				"\nCena: "+getCena();
     }
 }
