@@ -105,7 +105,7 @@ public class Menu {
 		do {
 			numurs = JOptionPane.showInputDialog("Ievadiet savu numuru: ");
 			numLength = numurs.length();
-		}while(numLength != 8);
+		}while(numLength != 8 || !numurs.startsWith("2"));
 		
 		User cilveks = new User(vards, uzvards, adresse, numurs);
 		
@@ -201,12 +201,12 @@ public class Menu {
 				case 1:
 					int izmers = choosePicaIzmers();
 					
-					
-					
 					ArrayList<String> piedavas = choosePiedavas();
 					String merce = chooseMerce();
 					
-					MakePica myPica= new MakePica(izmers, piedavas, merce);
+					String nosaukumsManaPica = JOptionPane.showInputDialog("Ivadiet savas picas nosaukumu: ");
+					
+					MakePica myPica = new MakePica(nosaukumsManaPica, izmers, piedavas, merce);
 					order.add(myPica);
 					
 					JOptionPane.showMessageDialog(null, myPica.izvadit_ManaPica());
@@ -235,17 +235,17 @@ public class Menu {
 				break;
 			case 3:
 				try {
-				    BufferedReader reader = new BufferedReader(new FileReader("order.txt"));
-				    StringBuilder content = new StringBuilder();
-				    String line;
-				    while ((line = reader.readLine()) != null) {
-				        content.append(line).append("\n");
-				    }
-				    reader.close();
-				    JOptionPane.showMessageDialog(null, content.toString());
-				} catch (IOException e) {
-				    System.out.println("Kļūda, lasot no faila: " + e.getMessage());
-				}
+                    BufferedReader reader = new BufferedReader(new FileReader("order.txt"));
+                    StringBuilder content = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        content.append(line).append("\n");
+                    }
+                    reader.close();
+                    JOptionPane.showMessageDialog(null, content.toString());
+                } catch (IOException e) {
+                    System.out.println("Kļūda, lasot no faila: " + e.getMessage());
+                }
 				break;
 			case 4:
 				JOptionPane.showMessageDialog(null, "Uz redzēšanos!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE); 
@@ -253,6 +253,8 @@ public class Menu {
 				break;
 			}
 		}while(izvelesIndekss != 4);
+		
+		
 		
 	}
 }

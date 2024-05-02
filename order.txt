@@ -1,6 +1,11 @@
 Jūsu pasūtījums:
 
 
+Nosaukums: Studentu
+Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
+, tomātu mērce, eļļas un ķiploku mērce, oregano
+
+
 Izmers: 30
-Piedavas: [Pipari]
-Merce: Majonēze
+Piedavas: [Peperoni, Peperoni]
+Merce: Ķiploki
