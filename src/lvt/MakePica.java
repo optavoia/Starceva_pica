@@ -2,7 +2,7 @@ package lvt;
 
 import java.util.ArrayList;
 
-public class MakePica implements Pica{
+public class MakePica{
 	private String nosaukums;
 	private int izmers;
 	private ArrayList<String> piedavas;
@@ -47,7 +47,6 @@ public class MakePica implements Pica{
         this.merce = merce;
     }
 	
-	@Override
     public String toString() {
 		return  "\n\nNosaukums: "+getNosaukums()+
 				"\nIzmers: "+getIzmers()+
