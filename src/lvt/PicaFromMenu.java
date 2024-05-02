@@ -45,13 +45,13 @@ public class PicaFromMenu implements Pica{
         this.toppings = toppings;
     }
 	@Override
-	public String toString() {
+    public String toString() {
 		return  "\n\nNosaukums: "+getName()+
-				"\nToppings: "+getToppings();
-	}
+				"\nPiedavas: "+getToppings();
+    }
 	
 	public String izvadit() {
 		return  "\n\nNosaukums: "+getName()+
-				"\nToppings: "+getToppings();
+				"\nPiedavas: "+getToppings();
 	}
 }
