@@ -49,7 +49,8 @@ public class MakePica implements Pica{
 	
 	@Override
     public String toString() {
-		return  "\n\nIzmers: "+getIzmers()+
+		return  "\n\nNosaukums: "+getNosaukums()+
+				"\nIzmers: "+getIzmers()+
 				"\nPiedavas: "+getPiedavas()+
 				"\nMerce: "+getMerce();
     }
@@ -61,4 +62,3 @@ public class MakePica implements Pica{
 					"\nMerce: "+getMerce();
 		}	
 	}
-}
