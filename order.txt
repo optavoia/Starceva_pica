@@ -1,12 +1,23 @@
 Jūsu pasūtījums:
 
 
+Nosaukums: MAnaPIca
+Izmers: 30
+Piedavas: [Peperoni, Peperoni, Pipari]
+Merce: Majonēze
+
+
 Nosaukums: Studentu
 Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
 , tomātu mērce, eļļas un ķiploku mērce, oregano
 
 
-Nosaukums: ManaPica
+Nosaukums: Studentu
+Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
+, tomātu mērce, eļļas un ķiploku mērce, oregano
+
+
+Nosaukums: DrugajaPICa
 Izmers: 30
-Piedavas: [Pipari, Tomāti]
+Piedavas: [Pipari, Olīvas, Sīpoli]
 Merce: Majonēze
