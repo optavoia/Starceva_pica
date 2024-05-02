@@ -1,7 +1,12 @@
 Jūsu pasūtījums:
 
 
-Nosaukums: ManaPOica
-Izmers: 30
-Piedavas: [Olīvas, Tomāti]
+Nosaukums: Studentu
+Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
+, tomātu mērce, eļļas un ķiploku mērce, oregano
+
+
+Nosaukums: ManaPica
+Izmers: 50
+Piedavas: [Tomāti]
 Merce: Majonēze

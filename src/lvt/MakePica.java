@@ -53,16 +53,7 @@ public class MakePica implements Pica{
 				"\nIzmers: "+getIzmers()+
 				"\nPiedavas: "+getPiedavas()+
 				"\nMerce: "+getMerce();
-    }
-<<<<<<< HEAD
-	
-	public String izvadit() {
-			return  "\n\nNosaukums: "+getNosaukums()+
-					"\nIzmers: "+getIzmers()+
-					"\nPiedavas: "+getPiedavas()+
-					"\nMerce: "+getMerce();
-		}	
-	}
-=======
+    }	
 }
->>>>>>> class_MakePica
+
+

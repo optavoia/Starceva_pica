@@ -196,6 +196,24 @@ public class Menu {
 						order.add(pikanta);
 					}
 					
+					try {
+				        BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt", true)); // Append to file
+				        writer.write("Jūsu pasūtījums:");
+				        writer.newLine();
+				        
+				        for (Object obj : order) {
+				            if (obj instanceof Pica) {
+				                writer.write(obj.toString());
+				                writer.newLine();
+				            }
+				        }
+				        writer.close();
+				        
+				        System.out.println("Dati veiksmīgi ierakstīti failā.");
+				    } catch (IOException e) {
+				        System.out.println("Kļūda, rakstot failā: " + e.getMessage());
+				    }
+					
 					break;
 				case 1:
 					int izmers = choosePicaIzmers();
