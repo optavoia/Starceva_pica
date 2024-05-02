@@ -209,8 +209,6 @@ public class Menu {
 					MakePica myPica = new MakePica(nosaukumsManaPica, izmers, piedavas, merce);
 					order.add(myPica);
 					
-					JOptionPane.showMessageDialog(null, myPica.izvadit_ManaPica());
-					
 					try {
 			            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt"));
 			            
