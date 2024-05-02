@@ -1,6 +1,6 @@
 package lvt;
 
-public class PicaFromMenu implements Pica{
+public class PicaFromMenu{
 	private String name;
 	private int diam; //piccas izmers
 	private int cena;
@@ -44,7 +44,7 @@ public class PicaFromMenu implements Pica{
 	void setToppings(String toppings){
         this.toppings = toppings;
     }
-	@Override
+	
     public String toString() {
 		return  "\n\nNosaukums: "+getName()+
 				"\nPiedavas: "+getToppings();
