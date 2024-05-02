@@ -75,7 +75,7 @@ public class Menu {
 		String[] darbibas = {"User information", "Menu", "Pasūtīt picu", "Paskatities pasūtījumu","Aizvert Menu"};
 		String[] piccas = {"Peperoni", "Studentu", "Pikantā"};
 		String[] izvele1 = {"Cenas", "Menu", "\"Izveidojiet savu picu\" info"};
-		String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
+String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 		String[] piegade = {"Piegādāt uz adresi", "Izņemt uz vietas"};
 		ArrayList<Object> picaFromMenu = new ArrayList<Object>();
 		ArrayList<Object> YourOwnPicca = new ArrayList<Object>();
@@ -191,11 +191,11 @@ public class Menu {
 				izvelesIndekss = Arrays.asList(piegade).indexOf(izvele);
 				
 				if (diam == 20) {
-		            cena = 7;
+		            cena += 7;
 		        } else if (diam == 30) {
-		            cena = 12;
+		            cena += 12;
 		        } else if (diam == 50) {
-		            cena = 20;
+		            cena += 20;
 		        }
 				
 				if(izvelesIndekss == 0) {
