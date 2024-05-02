@@ -50,9 +50,4 @@ public class PicaFromMenu implements Pica{
 		return  "\n\nNosaukums: "+getName()+
 				"\nToppings: "+getToppings();
     }
-	
-	public String izvadit() {
-		return  "\n\nNosaukums: "+getName()+
-				"\nPiedavas: "+getToppings();
-	}
 }
