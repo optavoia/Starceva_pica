@@ -61,7 +61,7 @@ public class MakePica{
 		return  "\n\nNosaukums: "+getNosaukums()+
 				"\nPiedavas: "+getPiedavas()+
 				"\nMerce: "+getMerce()+
-				"\nIzmers: "+getIzmers()+
-				"\nCena: "+getCena();
+				"\nIzmers: "+getIzmers()+" cm"+
+				"\nCena: "+getCena()+" euro";
     }
 }
