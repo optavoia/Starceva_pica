@@ -200,6 +200,9 @@ public class Menu {
 					break;
 				case 1:
 					int izmers = choosePicaIzmers();
+					
+					
+					
 					ArrayList<String> piedavas = choosePiedavas();
 					String merce = chooseMerce();
 					
