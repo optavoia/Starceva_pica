@@ -148,17 +148,17 @@ public class Menu {
 					String bum1 ="";
 					switch(izvelesIndekss) {
 					case 0:
-						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
+						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).toString();
 						JOptionPane.showMessageDialog(null, bum1, "Pepperoni",
 								JOptionPane.INFORMATION_MESSAGE, peperoniImage);
 						break;
 					case 1:
-						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
+						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).toString();
 						JOptionPane.showMessageDialog(null, bum1, "Studentu", 
 								JOptionPane.INFORMATION_MESSAGE, studentuImage);
 						break;
 					case 2:
-						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).izvadit();
+						bum1 += ((PicaFromMenu)picaFromMenu.get(izvelesIndekss)).toString();
 						JOptionPane.showMessageDialog(null, bum1,"Pikanta",
 								JOptionPane.INFORMATION_MESSAGE, pikantaImage);
 						break;
