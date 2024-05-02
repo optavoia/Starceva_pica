@@ -55,14 +55,6 @@ public class MakePica implements Pica{
 				"\nMerce: "+getMerce();
     }
 	
-	public String izvadit_ManaPica() {
-
-		StringBuilder apraksts= new StringBuilder();
-		apraksts.append("Izmērs: ").append(izmers).append(" cm\n");
-		apraksts.append("Piedevas: ").append(String.join(", ", piedavas)).append("\n");
-		apraksts.append("Mērce: ").append(merce).append("\n");
-		return apraksts.toString();	
-	}
 	public String izvadit() {
 			return  "\n\nNosaukums: "+getNosaukums()+
 					"\nIzmers: "+getIzmers()+
