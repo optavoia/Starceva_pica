@@ -4,5 +4,12 @@ Jūsu pasūtījums:
 Nosaukums: Studentu
 Piedavas: "Studentu" Cūkgaļas šķiņķis, cīsiņi, mocarella,
 tomātu mērce, eļļas un ķiploku mērce, oregano
-Izmers: 50
+Izmers: 30
+Cena: 12
+
+
+Nosaukums: ManaPica
+Piedavas: [Olīvas, Sīpoli, Tomāti]
+Merce: Majonēze
+Izmers: 30
 Cena: 24

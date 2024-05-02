@@ -3,7 +3,6 @@ package lvt;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Menu {
@@ -191,9 +188,9 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 				izvelesIndekss = Arrays.asList(piegade).indexOf(izvele);
 				
 				if (izvelesIndekss == 0) {
-				    cena = cena +  4; // Оставляем без изменений, если доставка не выбрана
+				    cena = cena +  4; 
 				} else {
-				    cena = cena + 0; // Увеличиваем цену на 4, если выбрана доставка на дом
+				    cena = cena + 0;
 				}
 				
 				izvele = (String)JOptionPane.showInputDialog(null, 
@@ -215,7 +212,7 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 				        int size = choosePicaIzmers();
 				        
 				        if (size == 20) {
-						    cena = cena + 7; // Увеличиваем цену на 7 для пиццы с диаметром 20 см
+						    cena = cena + 7;
 						} else if (size == 30) {
 						    cena = cena + 12;
 						} else if (size == 50) {
@@ -266,7 +263,15 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 					
 					String nosaukumsManaPica = JOptionPane.showInputDialog("Ivadiet savas picas nosaukumu: ");
 					
-					MakePica myPica = new MakePica(nosaukumsManaPica, izmers, piedavas, merce);
+					if (izmers == 20) {
+					    cena = cena + 7;
+					} else if (izmers == 30) {
+					    cena = cena + 12;
+					} else if (izmers == 50) {
+					    cena = cena + 20;
+					}
+					
+					MakePica myPica = new MakePica(nosaukumsManaPica, izmers, cena,piedavas, merce);
 					order.add(myPica);
 					
 					try {

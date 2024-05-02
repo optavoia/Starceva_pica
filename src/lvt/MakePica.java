@@ -60,15 +60,10 @@ public class MakePica{
     public String toString() {
 		return  "\n\nNosaukums: "+getNosaukums()+
 				"\nPiedavas: "+getPiedavas()+
-<<<<<<< HEAD
-				"\nMerce: "+getMerce();
-    }	
-=======
 				"\nMerce: "+getMerce()+
 				"\nIzmers: "+getIzmers()+
 				"\nCena: "+getCena();
     }
->>>>>>> class_MakePica
 }
 
 
