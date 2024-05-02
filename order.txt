@@ -9,7 +9,14 @@ Cena: 12
 
 
 Nosaukums: ManaPica
-Piedavas: [Olīvas, Sīpoli, Tomāti]
-Merce: Majonēze
+Piedavas: [Sēnes]
+Merce: Ķiploki
 Izmers: 30
+Cena: 12
+
+
+Nosaukums: Pikantā
+Piedavas: "Pikantā" Vistas gaļa, mocarella, konservēti ananasi,
+tomātu mērce, eļļas un ķiploku mērce, oregano
+Izmers: 50
 Cena: 24

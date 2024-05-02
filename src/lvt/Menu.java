@@ -52,27 +52,33 @@ public class Menu {
 	        return "";
 	    }
 	}
+
 	
 	public static void main(String[] args) {
 		
-		File file = new File("order.txt");
-        if (file.exists()) {
-            file.delete();
-            System.out.println("order.txt file deleted successfully.");
-        } else {
-            System.out.println("order.txt file does not exist.");
-        }
+		try {
+		    BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt", false));
+
+		    writer.write("");
+
+		    writer.close();
+
+		    System.out.println("order.txt successfully emptied.");
+		} catch (IOException e) {
+		    System.out.println("Error while emptying the file: " + e.getMessage());
+		}
 		
 		String izvele;
 		int izvelesIndekss;
 		String vards, uzvards, adresse, numurs;
-		int diam = 0, cena = 0; //pie picas
+		int diam = 0, cena = 0, cena2= 0; //pie picas
 		int numLength;
+		int cenaParPiegadi = 0;
 		
 		String[] darbibas = {"User information", "Menu", "Pasūtīt picu", "Paskatities pasūtījumu","Aizvert Menu"};
 		String[] piccas = {"Peperoni", "Studentu", "Pikantā"};
 		String[] izvele1 = {"Cenas", "Menu", "\"Izveidojiet savu picu\" info"};
-String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
+		String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 		String[] piegade = {"Piegādāt uz adresi", "Izņemt uz vietas"};
 		ArrayList<Object> picaFromMenu = new ArrayList<Object>();
 		ArrayList<Object> YourOwnPicca = new ArrayList<Object>();
@@ -180,27 +186,32 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 					break;
 				}
 				break;
+				//PICAS PASUTIJUMS
 			case 2:
-				izvele = (String)JOptionPane.showInputDialog(null, 
-						"Izvelaties piegades veidu:", "Izvēle", 
-						JOptionPane.QUESTION_MESSAGE, null, 
-						piegade, piegade[0]);
-				izvelesIndekss = Arrays.asList(piegade).indexOf(izvele);
-				
-				if (izvelesIndekss == 0) {
-				    cena = cena +  4; 
-				} else {
-				    cena = cena + 0;
-				}
-				
 				izvele = (String)JOptionPane.showInputDialog(null, 
 						"Izvēlies picu", "Izvēle", 
 						JOptionPane.QUESTION_MESSAGE, null, 
 						izvele2, izvele2[0]);
 				izvelesIndekss = Arrays.asList(izvele2).indexOf(izvele);
 				
+				int piegadesIzvele = JOptionPane.showOptionDialog(null,
+				        "Как вы хотите получить ваш заказ?",
+				        "Выберите способ получения",
+				        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+				        null, piegade, piegade[0]);
+				
+				if (piegadesIzvele == 0) { // Если выбрана доставка, учитываем дополнительную плату
+				    cena += 4; // Добавляем плату за доставку
+				}
+				
+				
+				
+				//NO PIEDAVATAM PICAM
 				switch(izvelesIndekss) {
 				case 0:
+					
+					
+					
 					izvele = (String) JOptionPane.showInputDialog(null, 
 				            "Izvēlies picu", "Izvēle", 
 				            JOptionPane.QUESTION_MESSAGE, null, 
@@ -208,16 +219,16 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 				    izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
 
 				    if (izvelesIndekss >= 0) {
-
 				        int size = choosePicaIzmers();
 				        
-				        if (size == 20) {
-						    cena = cena + 7;
-						} else if (size == 30) {
-						    cena = cena + 12;
-						} else if (size == 50) {
-						    cena = cena + 20;
-						}
+				        	if (size == 20)
+				                cena += 7;
+				            else if (size == 30)
+				                cena += 12;
+				            else if (size == 50)
+				                cena += 20;
+				        	
+				        JOptionPane.showMessageDialog(null, "Сумма вашего заказа: " + cena + " евро");
 
 				        if (izvelesIndekss == 0) {
 				            order.add(new PicaFromMenu("Pepperoni", size, cena, "\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
@@ -229,9 +240,11 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 				            order.add(new PicaFromMenu("Pikantā", size, cena, "\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,"
 				                + "\ntomātu mērce, eļļas un ķiploku mērce, oregano"));
 				        }
+				        
+				        cena = 0;
 
 				        try {
-				            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt", true)); // Append to file
+				            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt"));
 				            writer.write("Jūsu pasūtījums:");
 				            writer.newLine();
 
@@ -253,25 +266,22 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 				            System.out.println("Kļūda, rakstot failā: " + e.getMessage());
 				        }
 				    }
-					
 					break;
+					//MAKE PICA
 				case 1:
 					int izmers = choosePicaIzmers();
-					
 					ArrayList<String> piedavas = choosePiedavas();
 					String merce = chooseMerce();
-					
 					String nosaukumsManaPica = JOptionPane.showInputDialog("Ivadiet savas picas nosaukumu: ");
 					
-					if (izmers == 20) {
-					    cena = cena + 7;
-					} else if (izmers == 30) {
-					    cena = cena + 12;
-					} else if (izmers == 50) {
-					    cena = cena + 20;
-					}
+					if (izmers == 20)
+		                cena2 += 7;
+		            else if (izmers == 30)
+		                cena2 += 12;
+		            else if (izmers == 50)
+		                cena2 += 20;
 					
-					MakePica myPica = new MakePica(nosaukumsManaPica, izmers, cena,piedavas, merce);
+					MakePica myPica = new MakePica(nosaukumsManaPica, izmers, cena2,piedavas, merce);
 					order.add(myPica);
 					
 					try {
@@ -297,10 +307,10 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 			        } catch (IOException e) {
 			            System.out.println("Kļūda, rakstot failā: " + e.getMessage());
 			        }
-					
 					break;
 				}
 				break;
+			//Izvadit Pasutijumu
 			case 3:
 				if (!order.isEmpty()) {
 			        try {
