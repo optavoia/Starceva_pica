@@ -17,19 +17,6 @@ import javax.swing.JOptionPane;
 
 public class Menu {
 	
-	private static int calculatePriceBySize(int size) {
-	    switch(size) {
-	        case 20:
-	            return 7;
-	        case 30:
-	            return 12;
-	        case 50:
-	            return 20;
-	        default:
-	            return 0; 
-	    }
-	}
-	
 	private static int choosePicaIzmers() {
 		String [] veidi = {"20", "30", "50"};
 		int size = Integer.parseInt((String)JOptionPane.showInputDialog(null, "Izvēlieties picas izmēru (cm):", 
@@ -202,6 +189,14 @@ public class Menu {
 						JOptionPane.QUESTION_MESSAGE, null, 
 						piegade, piegade[0]);
 				izvelesIndekss = Arrays.asList(piegade).indexOf(izvele);
+				
+				if (diam == 20) {
+		            cena = 7;
+		        } else if (diam == 30) {
+		            cena = 12;
+		        } else if (diam == 50) {
+		            cena = 20;
+		        }
 				
 				if(izvelesIndekss == 0) {
 					cena += 0;
