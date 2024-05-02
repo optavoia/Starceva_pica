@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -53,6 +56,22 @@ public class Menu {
 	    }
 	}
 
+	public static void PlayMusic(String location) {
+		try {
+			File musicPath = new File(location);
+			
+			if(musicPath.exists()) {
+				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+				Clip clip = AudioSystem.getClip();
+				clip.open(audioInput);
+				clip.start();
+			}else {
+				System.out.println("Cannot find audio file");
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
 	
 	public static void main(String[] args) {
 		
@@ -85,9 +104,14 @@ public class Menu {
 		ArrayList<Object> User = new ArrayList<Object>();
 		ArrayList<Object> order = new ArrayList<Object>();
 		
+		
 		ImageIcon peperoniImage = new ImageIcon("peperoni.png");
 		ImageIcon studentuImage = new ImageIcon("Studentu.png");
 		ImageIcon pikantaImage = new ImageIcon("Pikanta.png");
+		ImageIcon sveiciens = new ImageIcon("Sveiciens.png");
+		ImageIcon user = new ImageIcon("user1.png");
+		ImageIcon orderImage = new ImageIcon("order.png");
+		
 		
 		//Picas
 		PicaFromMenu pepperoni = new PicaFromMenu("Pepperoni", diam, cena,"\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
@@ -101,6 +125,11 @@ public class Menu {
 		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,"
 				+ "\ntomātu mērce, eļļas un ķiploku mērce, oregano");
 		picaFromMenu.add(pikanta);
+		
+		//Sveiki
+		String filepath = "PapasPizerija.wav";
+		PlayMusic(filepath);
+		JOptionPane.showMessageDialog(null, "Laipni lūgti picērijā!", "Sveiciena ekrāns", JOptionPane.PLAIN_MESSAGE, sveiciens);
 		
 		//User info input
 		 do {
@@ -134,7 +163,7 @@ public class Menu {
 			switch(izvelesIndekss) {
 			//user info display
 			case 0:
-				JOptionPane.showMessageDialog(null, cilveks.izvadit());
+				JOptionPane.showMessageDialog(null, cilveks.izvadit(), "User" ,JOptionPane.PLAIN_MESSAGE, user);
 				break;
 			//Menu
 			case 1:
@@ -351,7 +380,7 @@ public class Menu {
 			                content.append(line).append("\n");
 			            }
 			            reader.close();
-			            JOptionPane.showMessageDialog(null, content.toString());
+			            JOptionPane.showMessageDialog(null, content.toString(), "Pasutijums", JOptionPane.PLAIN_MESSAGE, orderImage);
 			        } catch (IOException e) {
 			            System.out.println("Kļūda, lasot no faila: " + e.getMessage());
 			        }
