@@ -3,13 +3,14 @@ package lvt;
 public class PicaFromMenu{
 	private String name;
 	private int diam; //piccas izmers
-	private int cena;
+	private int cena, skaits;
 	private String toppings;
 	
-	public  PicaFromMenu(String name, int diam, int cena, String toppings) {
+	public  PicaFromMenu(String name, int diam, int cena, int skaits, String toppings) {
 		this.name = name;
 		this.diam = diam;
 		this.cena = cena;
+		this.skaits = skaits;
 		this.toppings = toppings;
 	}
 	
@@ -37,6 +38,14 @@ public class PicaFromMenu{
 		this.cena = cena;
 	}
 	
+	public int getSkaits() {
+		return skaits;
+	}
+	
+	void setSkaits(int skaits) {
+		this.skaits = skaits;
+	}
+	
 	public String getToppings() {
 		return toppings;
 	}
@@ -49,6 +58,7 @@ public class PicaFromMenu{
 		return  "\n\nNosaukums: "+getName()+
 				"\nPiedavas: "+getToppings()+
 				"\nIzmers: "+getDiam()+" cm"+
-				"\nCena: "+getCena()+" euro";
+				"\nCena: "+getCena()+" euro"+
+				"\nSkaits: "+getSkaits();
     }
 }
