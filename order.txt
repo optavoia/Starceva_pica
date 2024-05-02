@@ -1,7 +1,13 @@
 Jūsu pasūtījums:
 
 
-Nosaukums: ManaPcia
+Nosaukums: ManaPIca
 Izmers: 30
-Piedavas: [Sēnes, Sīpoli]
+Piedavas: [Sēnes]
 Merce: Ķiploki
+Jūsu pasūtījums:
+
+
+Nosaukums: Studentu
+Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi, mocarella,
+tomātu mērce, eļļas un ķiploku mērce, oregano

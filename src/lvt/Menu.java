@@ -231,12 +231,17 @@ public class Menu {
 				            writer.write("Jūsu pasūtījums:");
 				            writer.newLine();
 
-				            for (Object obj : order) {
-				                if (obj instanceof PicaFromMenu) {
-				                    writer.write(obj.toString());
-				                    writer.newLine();
+				            for (Object item : order) {
+				                if (item instanceof MakePica) {
+				                    MakePica makePica = (MakePica) item;
+				                    writer.write(makePica.toString());
+				                } else if (item instanceof PicaFromMenu) {
+				                    PicaFromMenu picaMenu = (PicaFromMenu) item;
+				                    writer.write(picaMenu.toString());
 				                }
+				                writer.newLine();
 				            }
+				            
 				            writer.close();
 
 				            System.out.println("Dati veiksmīgi ierakstīti failā.");
@@ -263,12 +268,17 @@ public class Menu {
 			            writer.write("Jūsu pasūtījums:");
 			            writer.newLine();
 			            
-			            for (Object obj : order) {
-			                if (obj instanceof Pica) {
-			                    writer.write(obj.toString());
-			                    writer.newLine();
+			            for (Object item : order) {
+			                if (item instanceof MakePica) {
+			                    MakePica makePica = (MakePica) item;
+			                    writer.write(makePica.toString());
+			                } else if (item instanceof PicaFromMenu) {
+			                    PicaFromMenu picaMenu = (PicaFromMenu) item;
+			                    writer.write(picaMenu.toString());
 			                }
+			                writer.newLine();
 			            }
+			            
 			            writer.close();
 			            
 			            System.out.println("Dati veiksmīgi ierakstīti failā.");
