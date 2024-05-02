@@ -190,18 +190,10 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 						piegade, piegade[0]);
 				izvelesIndekss = Arrays.asList(piegade).indexOf(izvele);
 				
-				if (diam == 20) {
-		            cena += 7;
-		        } else if (diam == 30) {
-		            cena += 12;
-		        } else if (diam == 50) {
-		            cena += 20;
-		        }
-				
-				if(izvelesIndekss == 0) {
-					cena += 0;
-				}else {
-					cena += 4;
+				if (izvelesIndekss == 0) {
+				    cena = cena +  4; // Оставляем без изменений, если доставка не выбрана
+				} else {
+				    cena = cena + 0; // Увеличиваем цену на 4, если выбрана доставка на дом
 				}
 				
 				izvele = (String)JOptionPane.showInputDialog(null, 
@@ -221,6 +213,14 @@ String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
 				    if (izvelesIndekss >= 0) {
 
 				        int size = choosePicaIzmers();
+				        
+				        if (size == 20) {
+						    cena = cena + 7; // Увеличиваем цену на 7 для пиццы с диаметром 20 см
+						} else if (size == 30) {
+						    cena = cena + 12;
+						} else if (size == 50) {
+						    cena = cena + 20;
+						}
 
 				        if (izvelesIndekss == 0) {
 				            order.add(new PicaFromMenu("Pepperoni", size, cena, "\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"

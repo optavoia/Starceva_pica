@@ -2,8 +2,7 @@ Jūsu pasūtījums:
 
 
 Nosaukums: Studentu
-Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi, mocarella,
-tomātu mērce, eļļas un ķiploku mērce, oregano
 Piedavas: "Studentu" Cūkgaļas šķiņķis, cīsiņi, mocarella,
 tomātu mērce, eļļas un ķiploku mērce, oregano
-Cena: 4
+Izmers: 50
+Cena: 24
