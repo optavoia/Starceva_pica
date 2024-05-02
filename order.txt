@@ -1,22 +1,8 @@
 Jūsu pasūtījums:
 
 
-Nosaukums: Studentu
-Piedavas: "Studentu" Cūkgaļas šķiņķis, cīsiņi, mocarella,
-tomātu mērce, eļļas un ķiploku mērce, oregano
-Izmers: 30
-Cena: 12
-
-
 Nosaukums: ManaPica
-Piedavas: [Sēnes]
-Merce: Ķiploki
+Piedavas: [Pipari]
+Merce: Majonēze
 Izmers: 30
-Cena: 12
-
-
-Nosaukums: Pikantā
-Piedavas: "Pikantā" Vistas gaļa, mocarella, konservēti ananasi,
-tomātu mērce, eļļas un ķiploku mērce, oregano
-Izmers: 50
-Cena: 24
+Cena: 40

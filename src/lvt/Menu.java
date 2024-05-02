@@ -188,29 +188,23 @@ public class Menu {
 				break;
 				//PICAS PASUTIJUMS
 			case 2:
+				cena = 0;
+				//Izvelamies picas skaitu
+				izvele = (String) JOptionPane.showInputDialog(null, 
+				        "Ievadiet vēlamo pīcas skaitu:", "Izvēle", 
+				        JOptionPane.QUESTION_MESSAGE);
+				    int picuSkaits = Integer.parseInt(izvele); 
+				
+				//Izveleties picu
 				izvele = (String)JOptionPane.showInputDialog(null, 
 						"Izvēlies picu", "Izvēle", 
 						JOptionPane.QUESTION_MESSAGE, null, 
 						izvele2, izvele2[0]);
 				izvelesIndekss = Arrays.asList(izvele2).indexOf(izvele);
 				
-				int piegadesIzvele = JOptionPane.showOptionDialog(null,
-				        "Как вы хотите получить ваш заказ?",
-				        "Выберите способ получения",
-				        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
-				        null, piegade, piegade[0]);
-				
-				if (piegadesIzvele == 0) { // Если выбрана доставка, учитываем дополнительную плату
-				    cena += 4; // Добавляем плату за доставку
-				}
-				
-				
-				
 				//NO PIEDAVATAM PICAM
 				switch(izvelesIndekss) {
 				case 0:
-					
-					
 					
 					izvele = (String) JOptionPane.showInputDialog(null, 
 				            "Izvēlies picu", "Izvēle", 
@@ -218,7 +212,7 @@ public class Menu {
 				            piccas, piccas[0]);
 				    izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
 
-				    if (izvelesIndekss >= 0) {
+				    	if (izvelesIndekss >= 0) {
 				        int size = choosePicaIzmers();
 				        
 				        	if (size == 20)
@@ -228,7 +222,24 @@ public class Menu {
 				            else if (size == 50)
 				                cena += 20;
 				        	
-				        JOptionPane.showMessageDialog(null, "Сумма вашего заказа: " + cena + " евро");
+				        cena *= picuSkaits;
+				        
+				        JOptionPane.showMessageDialog(null, "Jūsu pasūtījuma summa: " + cena + " euro");
+				        
+				        //Piegades izvele
+						int piegadesIzvele = JOptionPane.showOptionDialog(null,
+						        "Kā jūs vēlētos saņemt savu pasūtījumu?",
+						        "Izvēle",
+						        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+						        null, piegade, piegade[0]);
+						
+						if (piegadesIzvele == 0) {
+					        cena += 4;
+					        cena2 += 4;
+					        
+					        JOptionPane.showMessageDialog(null, "Piegādes izmaksas ir pievienotas jūsu galīgajai kopsummai (+ 4 euro).\nSumma: "+cena+ " euro", 
+					        		"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+					    }
 
 				        if (izvelesIndekss == 0) {
 				            order.add(new PicaFromMenu("Pepperoni", size, cena, "\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
@@ -280,6 +291,25 @@ public class Menu {
 		                cena2 += 12;
 		            else if (izmers == 50)
 		                cena2 += 20;
+					
+					cena2 *= picuSkaits;
+					
+					//Piegades izvele
+					int piegadesIzvele = JOptionPane.showOptionDialog(null,
+					        "Kā jūs vēlētos saņemt savu pasūtījumu?",
+					        "Izvēle",
+					        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+					        null, piegade, piegade[0]);
+					
+					if (piegadesIzvele == 0) {
+				        cena += 4;
+				        cena2 += 4;
+				        
+				        JOptionPane.showMessageDialog(null, "Piegādes izmaksas ir pievienotas jūsu galīgajai kopsummai (+ 4 euro).\nSumma: "+cena2+ " euro", 
+				        		"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+				    }
+					
+					JOptionPane.showMessageDialog(null, "Jūsu pasūtījuma summa: " + cena2 + " euro");
 					
 					MakePica myPica = new MakePica(nosaukumsManaPica, izmers, cena2,piedavas, merce);
 					order.add(myPica);
