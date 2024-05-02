@@ -54,11 +54,4 @@ public class MakePica implements Pica{
 				"\nPiedavas: "+getPiedavas()+
 				"\nMerce: "+getMerce();
     }
-	
-	public String izvadit_ManaPica() {
-			return  "\n\nNosaukums: "+getNosaukums()+
-					"\nIzmers: "+getIzmers()+
-					"\nPiedavas: "+getPiedavas()+
-					"\nMerce: "+getMerce();
-		}	
-	}
+}
