@@ -1,23 +1,12 @@
 Jūsu pasūtījums:
 
 
-Nosaukums: MAnaPIca
+Nosaukums: Pikantā
+Toppings: "Pikantā" Vistas gaļa, mocarella, konservēti ananasi,
+tomātu mērce, eļļas un ķiploku mērce, oregano
+
+
+Nosaukums: ManaPica
 Izmers: 30
-Piedavas: [Peperoni, Peperoni, Pipari]
-Merce: Majonēze
-
-
-Nosaukums: Studentu
-Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
-, tomātu mērce, eļļas un ķiploku mērce, oregano
-
-
-Nosaukums: Studentu
-Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
-, tomātu mērce, eļļas un ķiploku mērce, oregano
-
-
-Nosaukums: DrugajaPICa
-Izmers: 30
-Piedavas: [Pipari, Olīvas, Sīpoli]
+Piedavas: [Pipari, Sīpoli]
 Merce: Majonēze

@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Menu {
-	
 	private static int choosePicaIzmers() {
 		String [] veidi = {"20", "30", "50"};
 		int size = Integer.parseInt((String)JOptionPane.showInputDialog(null, "Izvēlieties picas izmēru (cm):", 
@@ -85,8 +84,8 @@ public class Menu {
 				+ "mocarella\n, tomātu mērce, eļļas un ķiploku mērce, oregano");
 		picaFromMenu.add(studentu);
 		
-		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,\n "
-				+ "tomātu mērce, eļļas un ķiploku mērce, oregano");
+		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,"
+				+ "\ntomātu mērce, eļļas un ķiploku mērce, oregano");
 		picaFromMenu.add(pikanta);
 		
 		//User info input
