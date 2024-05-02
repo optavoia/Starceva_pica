@@ -1,8 +1,8 @@
 Jūsu pasūtījums:
 
 
-Nosaukums: ManaPica
-Piedavas: [Pipari]
-Merce: Majonēze
-Izmers: 30
-Cena: 40
+Nosaukums: Pikantā
+Piedavas: "Pikantā" Vistas gaļa, mocarella, konservēti ananasi,
+tomātu mērce, eļļas un ķiploku mērce, oregano
+Izmers: 50 cm
+Cena: 64 euro
