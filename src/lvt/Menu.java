@@ -2,6 +2,7 @@ package lvt;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -55,6 +56,15 @@ public class Menu {
 	}
 	
 	public static void main(String[] args) {
+		
+		File file = new File("order.txt");
+        if (file.exists()) {
+            file.delete();
+            System.out.println("order.txt file deleted successfully.");
+        } else {
+            System.out.println("order.txt file does not exist.");
+        }
+		
 		String izvele;
 		int izvelesIndekss;
 		String vards, uzvards, adresse, numurs;
@@ -173,6 +183,17 @@ public class Menu {
 				}
 				break;
 			case 2:
+				izvele = (String)JOptionPane.showInputDialog(null, 
+						"Izvelaties piegades veidu:", "Izvēle", 
+						JOptionPane.QUESTION_MESSAGE, null, 
+						piegade, piegade[0]);
+				izvelesIndekss = Arrays.asList(piegade).indexOf(izvele);
+				
+				if(izvelesIndekss == 0) {
+					cena += 0;
+				}else {
+					cena += 4;
+				}
 				
 				izvele = (String)JOptionPane.showInputDialog(null, 
 						"Izvēlies ko tu gribi paskatities", "Izvēle", 
@@ -182,36 +203,46 @@ public class Menu {
 				
 				switch(izvelesIndekss) {
 				case 0:
-					izvele = (String)JOptionPane.showInputDialog(null, 
-							"Izvēlies ko tu gribi paskatities", "Izvēle", 
-							JOptionPane.QUESTION_MESSAGE, null, 
-							piccas, piccas[0]);
-					izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
-					
-					if(izvelesIndekss == 0) {
-						order.add(pepperoni);
-					}else if(izvelesIndekss == 1) {
-						order.add(studentu);
-					}else if(izvelesIndekss == 2) {
-						order.add(pikanta);
-					}
-					
-					try {
-				        BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt", true)); // Append to file
-				        writer.write("Jūsu pasūtījums:");
-				        writer.newLine();
-				        
-				        for (Object obj : order) {
-				            if (obj instanceof Pica) {
-				                writer.write(obj.toString());
-				                writer.newLine();
-				            }
+					izvele = (String) JOptionPane.showInputDialog(null, 
+				            "Izvēlies ko tu gribi paskatities", "Izvēle", 
+				            JOptionPane.QUESTION_MESSAGE, null, 
+				            piccas, piccas[0]);
+				    izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
+
+				    if (izvelesIndekss >= 0) {
+				        // Choose the size of the pizza
+				        int size = choosePicaIzmers();
+
+				        // Add the selected pizza with the chosen size to the order
+				        if (izvelesIndekss == 0) {
+				            order.add(new PicaFromMenu("Pepperoni", size, cena, "\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
+				                + "siers, \"Taco\" mērce, sīpolu čipsi, rukola,\ntomātu mērce, ķiploku mērce, oregano"));
+				        } else if (izvelesIndekss == 1) {
+				            order.add(new PicaFromMenu("Studentu", size, cena, "\"Studentu\" Cūkgaļas šķiņķis, cīsiņi, mocarella,"
+				            		+ "\ntomātu mērce, eļļas un ķiploku mērce, oregano"));
+				        } else if (izvelesIndekss == 2) {
+				            order.add(new PicaFromMenu("Pikantā", size, cena, "\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,"
+				                + "\ntomātu mērce, eļļas un ķiploku mērce, oregano"));
 				        }
-				        writer.close();
-				        
-				        System.out.println("Dati veiksmīgi ierakstīti failā.");
-				    } catch (IOException e) {
-				        System.out.println("Kļūda, rakstot failā: " + e.getMessage());
+
+				        // Write the order to the file
+				        try {
+				            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt", true)); // Append to file
+				            writer.write("Jūsu pasūtījums:");
+				            writer.newLine();
+
+				            for (Object obj : order) {
+				                if (obj instanceof PicaFromMenu) {
+				                    writer.write(obj.toString());
+				                    writer.newLine();
+				                }
+				            }
+				            writer.close();
+
+				            System.out.println("Dati veiksmīgi ierakstīti failā.");
+				        } catch (IOException e) {
+				            System.out.println("Kļūda, rakstot failā: " + e.getMessage());
+				        }
 				    }
 					
 					break;
