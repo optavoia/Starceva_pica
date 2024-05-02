@@ -1,11 +1,10 @@
 
 
-Nosaukums: Pepperoni
-Toppings: "Pepperoni" desa, mocarella, kūpināts kausētais
-siers, "Taco" mērce, sīpolu čipsi, rukola,
-tomātu mērce, ķiploku mērce, oregano
+Nosaukums: Studentu
+Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
+, tomātu mērce, eļļas un ķiploku mērce, oregano
 
 
 Izmers: 50
-Piedavas: [Pipari]
+Piedavas: [Pipari, Sīpoli]
 Merce: Majonēze

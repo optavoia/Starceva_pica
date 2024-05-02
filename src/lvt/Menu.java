@@ -66,6 +66,7 @@ public class Menu {
 		String[] piccas = {"Peperoni", "Studentu", "Pikantā"};
 		String[] izvele1 = {"Cenas", "Menu", "\"Izveidojiet savu picu\" info"};
 		String[] izvele2 = {"No menu", "Izveidojiet savu picu"};
+		String[] piegade = {"Piegādāt uz adresi", "Izņemt uz vietas"};
 		ArrayList<Object> picaFromMenu = new ArrayList<Object>();
 		ArrayList<Object> YourOwnPicca = new ArrayList<Object>();
 		ArrayList<Object> User = new ArrayList<Object>();
@@ -88,36 +89,26 @@ public class Menu {
 				+ "tomātu mērce, eļļas un ķiploku mērce, oregano");
 		picaFromMenu.add(pikanta);
 		
-		//User info
+		//User info input
+		 do {
+	            vards = JOptionPane.showInputDialog("Ievadiet vardu:");
+	        } while (vards == null || vards.trim().isEmpty());
+		 
+		 do {
+	            uzvards = JOptionPane.showInputDialog("Ievadiet uzvardu: ");
+	        } while (uzvards == null || uzvards.trim().isEmpty());
 		
-		vards = JOptionPane.showInputDialog("Ievadiet vardu: ");
-		
-		uzvards = JOptionPane.showInputDialog("Ievadiet uzvardu: ");
-		
-		adresse = JOptionPane.showInputDialog("Ievadiet savu adressi: ");
+		 do {
+	            adresse = JOptionPane.showInputDialog("Ievadiet savu adressi: ");
+	        } while (adresse == null || adresse.trim().isEmpty());
 		
 		do {
 			numurs = JOptionPane.showInputDialog("Ievadiet savu numuru: ");
 			numLength = numurs.length();
 		}while(numLength != 8);
 		
-		//BufferredWriter USER_INFO
-		try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("user_info.txt"));
-            
-            writer.write("Vards: " + vards);
-            writer.newLine();
-            writer.write("Uzvards: " + uzvards);
-            writer.newLine();
-            writer.write("Adrese: " + adresse);
-            writer.newLine();
-            writer.write("Numurs: " + numurs);
-            writer.close();
-            
-            System.out.println("Dati veiksmīgi ierakstīti failā.");
-        } catch (IOException e) {
-            System.out.println("Kļūda, rakstot failā: " + e.getMessage());
-        }
+		User cilveks = new User(vards, uzvards, adresse, numurs);
+		
 		
 		
 		
@@ -128,21 +119,9 @@ public class Menu {
 			izvelesIndekss = Arrays.asList(darbibas).indexOf(izvele);
 			
 			switch(izvelesIndekss) {
-			//user info
+			//user info display
 			case 0:
-				try {
-				    BufferedReader reader = new BufferedReader(new FileReader("user_info.txt"));
-				    StringBuilder content = new StringBuilder();
-				    String line;
-				    while ((line = reader.readLine()) != null) {
-				        content.append(line).append("\n");
-				    }
-				    reader.close();
-				    JOptionPane.showMessageDialog(null, content.toString());
-				} catch (IOException e) {
-				    System.out.println("Kļūda, lasot no faila: " + e.getMessage());
-				}
-
+				JOptionPane.showMessageDialog(null, cilveks.izvadit());
 				break;
 			//Menu
 			case 1:
@@ -195,6 +174,7 @@ public class Menu {
 				}
 				break;
 			case 2:
+				
 				izvele = (String)JOptionPane.showInputDialog(null, 
 						"Izvēlies ko tu gribi paskatities", "Izvēle", 
 						JOptionPane.QUESTION_MESSAGE, null, 
