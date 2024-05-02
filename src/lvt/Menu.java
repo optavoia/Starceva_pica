@@ -90,7 +90,7 @@ public class Menu {
 		String izvele;
 		int izvelesIndekss;
 		String vards, uzvards, adresse, numurs;
-		int diam = 0, cena = 0, cena2= 0; //pie picas
+		int diam = 0, cena = 0, cena2= 0, skaits = 0; //pie picas
 		int numLength;
 		int cenaParPiegadi = 0;
 		
@@ -114,15 +114,15 @@ public class Menu {
 		
 		
 		//Picas
-		PicaFromMenu pepperoni = new PicaFromMenu("Pepperoni", diam, cena,"\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
+		PicaFromMenu pepperoni = new PicaFromMenu("Pepperoni", diam, cena, skaits, "\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
 				+ "siers, \"Taco\" mērce, sīpolu čipsi, rukola,\ntomātu mērce, ķiploku mērce, oregano");
 		picaFromMenu.add(pepperoni);
 		
-		PicaFromMenu studentu = new PicaFromMenu("Studentu", diam, cena,"\"Studentu\" Cūkgaļas šķiņķis, cīsiņi,"
+		PicaFromMenu studentu = new PicaFromMenu("Studentu", diam, cena, skaits,"\"Studentu\" Cūkgaļas šķiņķis, cīsiņi,"
 				+ "mocarella\n, tomātu mērce, eļļas un ķiploku mērce, oregano");
 		picaFromMenu.add(studentu);
 		
-		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,"
+		PicaFromMenu pikanta = new PicaFromMenu("Pikantā", diam, cena, skaits,"\"Pikantā\" Vistas gaļa, mocarella, konservēti ananasi,"
 				+ "\ntomātu mērce, eļļas un ķiploku mērce, oregano");
 		picaFromMenu.add(pikanta);
 		
