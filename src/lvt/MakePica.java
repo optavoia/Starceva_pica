@@ -3,15 +3,25 @@ package lvt;
 import java.util.ArrayList;
 
 public class MakePica implements Pica{
+	private String nosaukums;
 	private int izmers;
 	private ArrayList<String> piedavas;
 	private String merce;
 	
-	public MakePica(int izmers, ArrayList<String> piedavas, String merce){
+	public MakePica(String nosaukums ,int izmers, ArrayList<String> piedavas, String merce){
 		this.izmers = izmers;
 		this.piedavas = piedavas;
 		this.merce = merce;
+		this.nosaukums = nosaukums;
 	}
+	
+	public String getNosaukums() {
+		return nosaukums;
+	}
+	
+	void setNosaukums(String nosaukums){
+        this.nosaukums = nosaukums;
+    }
 	
 	public int getIzmers() {
 		return izmers;
@@ -45,10 +55,18 @@ public class MakePica implements Pica{
     }
 	
 	public String izvadit_ManaPica() {
+<<<<<<< HEAD
 		StringBuilder apraksts= new StringBuilder();
 		apraksts.append("Izmērs: ").append(izmers).append(" cm\n");
 		apraksts.append("Piedevas: ").append(String.join(", ", piedavas)).append("\n");
 		apraksts.append("Mērce: ").append(merce).append("\n");
 		return apraksts.toString();	
+=======
+			return  "\n\nNosaukums: "+getNosaukums()+
+					"\nIzmers: "+getIzmers()+
+					"\nPiedavas: "+getPiedavas()+
+					"\nMerce: "+getMerce();
+		}	
+>>>>>>> class_MakePica
 	}
 }
