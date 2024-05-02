@@ -48,7 +48,7 @@ public class User {
     }
 	
 	public String izvadit() {
-		return  "\n\nVards: "+getVards()+
+		return  "\nVards: "+getVards()+
 				"\nUzvards: "+getUzvards()+
 				"\nAdresse: "+getAdresse()+
 				"\nTalrunis: "+getNumber();
