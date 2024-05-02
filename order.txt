@@ -1,11 +1,11 @@
 Jūsu pasūtījums:
 
 
-Nosaukums: Studentu
-Toppings: "Studentu" Cūkgaļas šķiņķis, cīsiņi,mocarella
-, tomātu mērce, eļļas un ķiploku mērce, oregano
+Nosaukums: Pikantā
+Toppings: "Pikantā" Vistas gaļa, mocarella, konservēti ananasi,
+ tomātu mērce, eļļas un ķiploku mērce, oregano
 
 
 Izmers: 30
-Piedavas: [Peperoni, Peperoni]
-Merce: Ķiploki
+Piedavas: [Pipari]
+Merce: Majonēze

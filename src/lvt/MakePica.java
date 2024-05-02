@@ -69,4 +69,3 @@ public class MakePica implements Pica{
 					"\nMerce: "+getMerce();
 		}	
 	}
-}
