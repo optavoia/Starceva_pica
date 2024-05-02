@@ -44,11 +44,6 @@ public class PicaFromMenu implements Pica{
 	void setToppings(String toppings){
         this.toppings = toppings;
     }
-	@Override
-	public String toString() {
-		return  "\n\nNosaukums: "+getName()+
-				"\nToppings: "+getToppings();
-	}
 	
 	@Override
     public String toString() {
@@ -58,6 +53,6 @@ public class PicaFromMenu implements Pica{
 	
 	public String izvadit() {
 		return  "\n\nNosaukums: "+getName()+
-				"\nToppings: "+getToppings();
+				"\nPiedavas: "+getToppings();
 	}
 }
