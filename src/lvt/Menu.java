@@ -16,6 +16,20 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Menu {
+	
+	private static int calculatePriceBySize(int size) {
+	    switch(size) {
+	        case 20:
+	            return 7;
+	        case 30:
+	            return 12;
+	        case 50:
+	            return 20;
+	        default:
+	            return 0; 
+	    }
+	}
+	
 	private static int choosePicaIzmers() {
 		String [] veidi = {"20", "30", "50"};
 		int size = Integer.parseInt((String)JOptionPane.showInputDialog(null, "Izvēlieties picas izmēru (cm):", 
@@ -196,7 +210,7 @@ public class Menu {
 				}
 				
 				izvele = (String)JOptionPane.showInputDialog(null, 
-						"Izvēlies ko tu gribi paskatities", "Izvēle", 
+						"Izvēlies picu", "Izvēle", 
 						JOptionPane.QUESTION_MESSAGE, null, 
 						izvele2, izvele2[0]);
 				izvelesIndekss = Arrays.asList(izvele2).indexOf(izvele);
@@ -204,16 +218,15 @@ public class Menu {
 				switch(izvelesIndekss) {
 				case 0:
 					izvele = (String) JOptionPane.showInputDialog(null, 
-				            "Izvēlies ko tu gribi paskatities", "Izvēle", 
+				            "Izvēlies picu", "Izvēle", 
 				            JOptionPane.QUESTION_MESSAGE, null, 
 				            piccas, piccas[0]);
 				    izvelesIndekss = Arrays.asList(piccas).indexOf(izvele);
 
 				    if (izvelesIndekss >= 0) {
-				        // Choose the size of the pizza
+
 				        int size = choosePicaIzmers();
 
-				        // Add the selected pizza with the chosen size to the order
 				        if (izvelesIndekss == 0) {
 				            order.add(new PicaFromMenu("Pepperoni", size, cena, "\"Pepperoni\" desa, mocarella, kūpināts kausētais\n"
 				                + "siers, \"Taco\" mērce, sīpolu čipsi, rukola,\ntomātu mērce, ķiploku mērce, oregano"));
@@ -225,7 +238,6 @@ public class Menu {
 				                + "\ntomātu mērce, eļļas un ķiploku mērce, oregano"));
 				        }
 
-				        // Write the order to the file
 				        try {
 				            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt", true)); // Append to file
 				            writer.write("Jūsu pasūtījums:");
@@ -290,19 +302,23 @@ public class Menu {
 				}
 				break;
 			case 3:
-				try {
-                    BufferedReader reader = new BufferedReader(new FileReader("order.txt"));
-                    StringBuilder content = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        content.append(line).append("\n");
-                    }
-                    reader.close();
-                    JOptionPane.showMessageDialog(null, content.toString());
-                } catch (IOException e) {
-                    System.out.println("Kļūda, lasot no faila: " + e.getMessage());
-                }
-				break;
+				if (!order.isEmpty()) {
+			        try {
+			            BufferedReader reader = new BufferedReader(new FileReader("order.txt"));
+			            StringBuilder content = new StringBuilder();
+			            String line;
+			            while ((line = reader.readLine()) != null) {
+			                content.append(line).append("\n");
+			            }
+			            reader.close();
+			            JOptionPane.showMessageDialog(null, content.toString());
+			        } catch (IOException e) {
+			            System.out.println("Kļūda, lasot no faila: " + e.getMessage());
+			        }
+			    } else {
+			        JOptionPane.showMessageDialog(null, "Jūsu pasūtījumu saraksts ir tukšs.", "Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+			    }
+			    break;
 			case 4:
 				JOptionPane.showMessageDialog(null, "Uz redzēšanos!", "Paziņojums", JOptionPane.INFORMATION_MESSAGE); 
 				System.exit(0);

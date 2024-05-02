@@ -45,10 +45,6 @@ public class PicaFromMenu{
         this.toppings = toppings;
     }
 	
-<<<<<<< HEAD
-	@Override
-=======
->>>>>>> class_PicaFromMenu
     public String toString() {
 		return  "\n\nNosaukums: "+getName()+
 				"\nToppings: "+getToppings();
