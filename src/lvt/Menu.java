@@ -211,6 +211,9 @@ public class Menu {
 					try {
 			            BufferedWriter writer = new BufferedWriter(new FileWriter("order.txt"));
 			            
+			            writer.write("Jūsu pasūtījums:");
+			            writer.newLine();
+			            
 			            for (Object obj : order) {
 			                if (obj instanceof Pica) {
 			                    writer.write(obj.toString());
