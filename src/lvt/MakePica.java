@@ -5,15 +5,16 @@ import java.util.ArrayList;
 public class MakePica{
 	private String nosaukums;
 	private int izmers;
-	private int cena;
+	private int cena, skaits;
 	private ArrayList<String> piedavas;
 	private String merce;
 	
-	public MakePica(String nosaukums ,int izmers, int cena ,ArrayList<String> piedavas, String merce){
+	public MakePica(String nosaukums ,int izmers, int cena , int skaits,ArrayList<String> piedavas, String merce){
 		this.izmers = izmers;
 		this.cena = cena;
 		this.piedavas = piedavas;
 		this.merce = merce;
+		this.skaits = skaits;
 		this.nosaukums = nosaukums;
 	}
 	
@@ -31,6 +32,14 @@ public class MakePica{
 	
 	void setIzmers(int izmers){
         this.izmers = izmers;
+    }
+	
+	public int getSkaits() {
+		return skaits;
+	}
+	
+	void setSkaits(int skaits){
+        this.skaits = skaits;
     }
 	
 	public int getCena() {
@@ -62,7 +71,8 @@ public class MakePica{
 				"\nPiedavas: "+getPiedavas()+
 				"\nMerce: "+getMerce()+
 				"\nIzmers: "+getIzmers()+" cm"+
-				"\nCena: "+getCena()+" euro";
+				"\nCena: "+getCena()+" euro"+
+				"\nSkaits: "+getSkaits();
     }
 }
 
